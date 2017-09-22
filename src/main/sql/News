@@ -1,0 +1,28 @@
+-- 创建News表 （Test表，测试查询的，后期字段肯定会扩充调整）
+CREATE TABLE news (
+  `id`         BIGINT      NOT NULL AUTO_INCREMENT
+  COMMENT 'id',
+  `title`    VARCHAR(64) NOT NULL
+  COMMENT '新闻标题',
+  `msg` VARCHAR(32) NOT NULL
+  COMMENT '新闻简介',
+  `type`  VARCHAR(32) NOT NULL
+  COMMENT '新闻类别',
+
+  PRIMARY KEY (`id`),
+  KEY idx_type (`type`),
+  KEY idx_id(`id`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COMMENT = '新闻表';
+
+
+-- 插入测试数据
+INSERT INTO news  (title , msg , type)
+    VALUES
+      ("这是第一条标题","这是第一条简介","军事"),
+      ("这是第二条标题","这是第二条简介","娱乐"),
+      ("这是第三条标题","这是第三条简介","热点"),
+      ("这是第四条标题","这是第四条简介","本地"),
+      ("这是第五条标题","这是第五条简介","娱乐");

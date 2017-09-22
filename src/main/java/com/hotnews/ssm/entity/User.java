@@ -1,4 +1,4 @@
-package com.hotnews.ssm.ebtity;
+package com.hotnews.ssm.entity;
 
 /**
  * Created by AnonymousH on 2017/9/21.

@@ -15,4 +15,15 @@
         WHERE
         type = #{type}
     </select>
+
+    <select id="queryType" resultType="string">
+        SELECT
+        new_bean.category
+        FROM
+        new_bean
+        WHERE
+        id = #{id}
+    </select>
+
+
 </mapper>

@@ -29,4 +29,12 @@ public class NewsController {
         return JsonUtil.getJsonResult(newsList,1,"");
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/getAllCategroy", method = RequestMethod.GET)
+    public String getCategoryType () {
+        return newsService.getType(1);
+    }
+
+
+
 }

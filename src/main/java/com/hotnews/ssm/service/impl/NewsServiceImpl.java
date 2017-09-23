@@ -21,5 +21,9 @@ public class NewsServiceImpl implements NewsService {
         return newsDao.queryNews(type, page, limit);
     }
 
+    public String getType(int id) {
+        return newsDao.queryType(id);
+    }
+
 
 }

@@ -11,4 +11,5 @@ public interface NewsService {
 
     List<News> getNews(String type, int page, int limit);
 
+    String getType(int id);
 }

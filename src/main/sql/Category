@@ -1,0 +1,15 @@
+CREATE TABLE category(
+  `id`         BIGINT      NOT NULL AUTO_INCREMENT
+  COMMENT 'id',
+  `uid`    VARCHAR(64) NOT NULL
+  COMMENT 'UUID',
+  `category_name` VARCHAR(32) NOT NULL
+  COMMENT '新闻简介',
+
+  PRIMARY KEY (`id`),
+  KEY idx_uid (`uid`),
+  KEY idx_id(`id`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COMMENT = '新闻类别表';

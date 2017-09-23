@@ -12,4 +12,6 @@ public interface NewsDao {
 
     List<News> queryNews(@Param("type")String type, @Param("page")int page, @Param("limit")int limit);
 
+    String queryType(int id);
+
 }

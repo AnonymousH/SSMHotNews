@@ -7,4 +7,6 @@ public interface UserDao {
 
     String signInByPhone(String phone,String password);
 
+    String signUpWithPhone(String phone ,String password);
+
 }

@@ -7,7 +7,7 @@ import com.hotnews.ssm.dto.ResponsTemplate;
  */
 public interface UserService {
 
-    void signUp();
+    void signUpWithPhone(String phone,String password);
 
     ResponsTemplate<String> signInByPhone(String phone , String password);
 

@@ -15,7 +15,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
-    public void signUp() {
+
+    public void signUpWithPhone(String phone, String password) {
 
     }
 

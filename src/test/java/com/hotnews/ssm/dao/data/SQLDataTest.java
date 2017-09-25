@@ -23,30 +23,30 @@ public class SQLDataTest extends BaseTest{
 
     @Test
     public void insertCategory() throws Exception {
-        Set<String> strings = new HashSet<String>();
-
-        for (int i = 0; i < 863; i++) {
-            String category =  newsDao.queryType(i);
-
-            if(category!=null){
-
-                List<String> list =  Arrays.asList(category.split(","));
-                if(list!=null && !list.isEmpty()){
-                    for (int j = 0; j < list.size(); j++) {
-                        strings.add(list.get(j));
-                    }
-                }
-
-            }
-
-        }
-
-        Iterator it = strings.iterator();
-        while (it.hasNext()) {
-//            System.out.printf("category-------  "+it.next());
-            String uid = UUID.randomUUID().toString();
-            sqlData.insertCategory(uid, (String) it.next());
-        }
+//        Set<String> strings = new HashSet<String>();
+//
+//        for (int i = 0; i < 863; i++) {
+//            String category =  newsDao.queryType(i);
+//
+//            if(category!=null){
+//
+//                List<String> list =  Arrays.asList(category.split(","));
+//                if(list!=null && !list.isEmpty()){
+//                    for (int j = 0; j < list.size(); j++) {
+//                        strings.add(list.get(j));
+//                    }
+//                }
+//
+//            }
+//
+//        }
+//
+//        Iterator it = strings.iterator();
+//        while (it.hasNext()) {
+////            System.out.printf("category-------  "+it.next());
+//            String uid = UUID.randomUUID().toString();
+//            sqlData.insertCategory(uid, (String) it.next());
+//        }
     }
 
 }

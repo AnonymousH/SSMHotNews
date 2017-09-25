@@ -1,6 +1,7 @@
 package com.hotnews.ssm.web;
 
 import com.hotnews.ssm.dto.ResponsTemplate;
+import com.hotnews.ssm.entity.Category;
 import com.hotnews.ssm.entity.News;
 import com.hotnews.ssm.service.NewsService;
 import com.hotnews.ssm.util.JsonUtil;
@@ -31,8 +32,8 @@ public class NewsController {
 
     @ResponseBody
     @RequestMapping(value = "/getAllCategroy", method = RequestMethod.GET)
-    public String getCategoryType () {
-        return newsService.getType(1);
+    public List<Category> getCategoryType () {
+        return newsService.getType();
     }
 
 

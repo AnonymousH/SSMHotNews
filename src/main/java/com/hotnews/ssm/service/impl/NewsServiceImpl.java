@@ -1,6 +1,7 @@
 package com.hotnews.ssm.service.impl;
 
 import com.hotnews.ssm.dao.NewsDao;
+import com.hotnews.ssm.entity.Category;
 import com.hotnews.ssm.entity.News;
 import com.hotnews.ssm.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class NewsServiceImpl implements NewsService {
         return newsDao.queryNews(type, page, limit);
     }
 
-    public String getType(int id) {
-        return newsDao.queryType(id);
+    public List<Category> getType() {
+        return newsDao.queryType();
     }
 
 

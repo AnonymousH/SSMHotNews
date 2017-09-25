@@ -18,13 +18,15 @@ CREATE TABLE user (
   COMMENT = '用户信息表';
 
 -- 插入数据
-INSERT INTO user (user_id, user_phone, user_name)
+INSERT INTO user (user_id, user_phone, user_name,password)
 VALUES
-  ("a2bf4fea-7a41-4c50-85c3-38e709d9146f", "13569632365", "草鸡无名"),
-  ("24039c68-fb95-4af7-ae5e-9a3d47cdcefc", "15263698956", "天天向上"),
-  ("02e74a77-4526-4c88-9e15-e795915146fa", "12365896565", "好好学习"),
-  ("54d7bbd8-3f81-48dc-8ff2-6841a7429a7c", "15698965658", "大熊猫"),
-  ("6eab971e-1f9d-4243-9289-e60cd1ddba2c", "13568656565", "国宝");
+  ("a2bf4fea-7a41-4c50-85c3-38e709d9146f", "13569632365", "草鸡无名","123455"),
+  ("24039c68-fb95-4af7-ae5e-9a3d47cdcefc", "15263698956", "天天向上","123456"),
+  ("02e74a77-4526-4c88-9e15-e795915146fa", "12365896565", "好好学习","123457"),
+  ("54d7bbd8-3f81-48dc-8ff2-6841a7429a7c", "15698965658", "大熊猫","123458"),
+  ("6eab971e-1f9d-4243-9289-e60cd1ddba2c", "13568656565", "国宝","123459");
 
 
+-- 添加密码字段
+ALTER TABLE user ADD password VARCHAR(64) NOT NULL ;
 

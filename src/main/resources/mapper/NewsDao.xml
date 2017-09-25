@@ -16,13 +16,13 @@
         type = #{type}
     </select>
 
-    <select id="queryType" resultType="string">
+    <select id="queryType" resultType="com.hotnews.ssm.entity.Category">
         SELECT
-        new_bean.category
+        category.id,
+        category.uid,
+        category.category_name
         FROM
-        new_bean
-        WHERE
-        id = #{id}
+        category
     </select>
 
 

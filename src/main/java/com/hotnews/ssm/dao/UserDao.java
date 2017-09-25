@@ -5,6 +5,6 @@ package com.hotnews.ssm.dao;
  */
 public interface UserDao {
 
-    void signUp();
+    String signInByPhone(String phone,String password);
 
 }

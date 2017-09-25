@@ -1,5 +1,6 @@
 package com.hotnews.ssm.service;
 
+import com.hotnews.ssm.entity.Category;
 import com.hotnews.ssm.entity.News;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface NewsService {
 
     List<News> getNews(String type, int page, int limit);
 
-    String getType(int id);
+    List<Category> getType();
 }

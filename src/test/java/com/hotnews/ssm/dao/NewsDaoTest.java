@@ -1,5 +1,6 @@
 package com.hotnews.ssm.dao;
 
+import com.hotnews.ssm.entity.Category;
 import com.hotnews.ssm.entity.News;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class NewsDaoTest extends BaseTest {
 
     @Test
     public void queryType() throws Exception {
-        String category = newsDao.queryType(1);
+        List<Category> category = newsDao.queryType();
         System.out.printf("category-------  "+category);
     }
 

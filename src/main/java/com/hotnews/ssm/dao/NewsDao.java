@@ -1,5 +1,6 @@
 package com.hotnews.ssm.dao;
 
+import com.hotnews.ssm.entity.Category;
 import com.hotnews.ssm.entity.News;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,6 +13,6 @@ public interface NewsDao {
 
     List<News> queryNews(@Param("type")String type, @Param("page")int page, @Param("limit")int limit);
 
-    String queryType(int id);
+    List<Category> queryType();
 
 }

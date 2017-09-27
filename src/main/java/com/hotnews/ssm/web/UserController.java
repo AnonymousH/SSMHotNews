@@ -27,4 +27,13 @@ public class UserController {
         return userService.signInByPhone(phone,password);
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/signUpWithPhone", method = RequestMethod.POST)
+    public ResponsTemplate<String> signUpWithPhone (String phone , String password) {
+        return userService.signUpWithPhone(phone,password);
+    }
+
+
+
 }

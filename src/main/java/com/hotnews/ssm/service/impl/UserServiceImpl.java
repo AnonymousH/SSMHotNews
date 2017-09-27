@@ -6,6 +6,8 @@ import com.hotnews.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 /**
  * Created by AnonymousH on 2017/9/25.
  */
@@ -16,8 +18,27 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
 
-    public void signUpWithPhone(String phone, String password) {
+    public ResponsTemplate<String> signUpWithPhone(String phone, String password) {
 
+        ResponsTemplate<String> stringResponsTemplate = new ResponsTemplate<String>();
+        String userID = userDao.checkPhoneIsUse(phone);
+        if(userID!=null){
+            stringResponsTemplate.setMsg("该号码已经注册!");
+            stringResponsTemplate.setCode(0);
+            stringResponsTemplate.setData("");
+
+            return stringResponsTemplate;
+        }
+
+        String uid = UUID.randomUUID().toString();
+        userDao.insertUser(uid, phone, phone, password);
+
+        stringResponsTemplate.setMsg("success");
+        stringResponsTemplate.setCode(1);
+        stringResponsTemplate.setData(uid);
+
+
+        return stringResponsTemplate;
     }
 
     public ResponsTemplate<String> signInByPhone(String phone , String password) {

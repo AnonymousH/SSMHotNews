@@ -18,4 +18,26 @@
 
     </select>
 
+    <select id="checkPhoneIsUse" resultType="String">
+
+        SELECT
+        user_id
+        FROM
+        user
+        WHERE
+        user_phone = #{ phone }
+
+    </select>
+
+    <insert id="insertUser">
+
+        INSERT INTO user
+        (user_id, user_phone, user_name, password) VALUES
+        ( #{userID} ,#{userPhone},#{userName},#{userPass} )
+
+
+    </insert>
+
+
+
 </mapper>

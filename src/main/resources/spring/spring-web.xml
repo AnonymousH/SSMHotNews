@@ -31,7 +31,7 @@
     </bean>
 
     <!-- 4.扫描web相关的bean -->
-    <context:component-scan base-package="com.hotnews.ssm.web"/>
+    <context:component-scan base-package="com.hotnews.ssm"/>
 
 
     <!-- 配置Json返回形式  -->
@@ -45,5 +45,10 @@
             </list>
         </property>
     </bean>
+
+
+    <!-- 配置swagger-ui的静态资源映射到swagger-ui包的路径 -->
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
 
 </beans>

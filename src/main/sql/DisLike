@@ -1,0 +1,15 @@
+CREATE TABLE dislike_reason(
+  `id`         BIGINT      NOT NULL AUTO_INCREMENT
+  COMMENT 'id',
+  `uid`    VARCHAR(64) NOT NULL
+  COMMENT 'UUID',
+  `dislike_reason` VARCHAR(64) NOT NULL
+  COMMENT '不喜欢原因',
+
+  PRIMARY KEY (`id`),
+  KEY idx_uid (`uid`),
+  KEY idx_id(`id`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COMMENT = '不喜欢原因表';

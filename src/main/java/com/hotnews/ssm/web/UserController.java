@@ -31,6 +31,7 @@ public class UserController {
             @ApiImplicitParam(name = "phone", value = "用户手机号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "password", value = "用户密码", required = true, dataType = "String")
     })
+
     @ResponseBody
     @RequestMapping(value = "/signInByPhone", method = RequestMethod.POST)
     public ResponsTemplate<String> signInByPhone (String phone , String password) {

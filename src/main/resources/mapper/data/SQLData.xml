@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotnews.ssm.dao.data.SQLData">
+
+    <select id="queryCategory" resultType="String">
+        SELECT
+        new_bean.category
+        FROM
+        new_bean
+        WHERE
+        id = #{ position }
+    </select>
+
+    <insert id="insertCategory">
+        INSERT INTO category
+        (uid, category_name)
+        VALUES
+        ( #{0} , #{1} )
+    </insert>
+
+    <select id="queryDisLike" resultType="String">
+        SELECT
+        new_bean.dislike_reason
+        FROM
+        new_bean
+        WHERE
+        id = #{ position }
+    </select>
+
+    <insert id="insertDisLikeReason">
+        INSERT INTO dislike_reason
+        (uid, dislike_reason)
+        VALUES
+        ( #{0} , #{1} )
+    </insert>
+</mapper>

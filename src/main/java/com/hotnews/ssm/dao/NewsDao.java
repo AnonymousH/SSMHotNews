@@ -15,4 +15,5 @@ public interface NewsDao {
 
     List<Category> queryType();
 
+
 }

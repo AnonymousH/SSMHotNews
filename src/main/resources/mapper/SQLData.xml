@@ -36,4 +36,28 @@
         VALUES
         ( #{0} , #{1} )
     </insert>
+
+    <insert id="insertDisLikeRelation">
+        INSERT INTO news_dislike_relation
+        (news_id, dislike_reason_id)
+        VALUES
+        ( #{newsID} , #{dislikeID} )
+    </insert>
+
+
+    <!--<select id="selectDislikeID" resultType="String">-->
+        <!--SELECT-->
+        <!--dislike_reason.uid-->
+        <!--FROM-->
+        <!--dislike_reason-->
+        <!--WHERE-->
+        <!--dislike_reason.dislike_reason = #{dislike}-->
+    <!--</select>-->
+
+    <select id="selectDislikeID" resultType="long">
+        SELECT dislike_reason.id FROM dislike_reason WHERE
+        dislike_reason.dislike_reason =#{dislike}
+
+    </select>
+
 </mapper>

@@ -13,3 +13,20 @@ CREATE TABLE dislike_reason(
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8
   COMMENT = '不喜欢原因表';
+
+
+CREATE TABLE news_dislike_relation(
+  `id`         BIGINT      NOT NULL AUTO_INCREMENT
+  COMMENT 'id',
+  `news_id`    BIGINT NOT NULL
+  COMMENT '新闻ID',
+  `dislike_reason_id` BIGINT NOT NULL
+  COMMENT '不喜欢原因ID',
+
+  PRIMARY KEY (`id`),
+  KEY idx_news_id (`news_id`),
+  KEY idx_dislike_reason_id(`dislike_reason_id`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COMMENT = '新闻对应不喜欢原因关系表';

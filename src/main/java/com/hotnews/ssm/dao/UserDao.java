@@ -7,9 +7,9 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface UserDao {
 
-    String signInByPhone(String phone,String password);
+    String signInByPhone(@Param("phone") String phone, @Param("password")String password);
 
-    String signUpWithPhone(String phone ,String password);
+    String signUpWithPhone(@Param("phone")String phone ,@Param("password")String password);
 
     String checkPhoneIsUse(String phone);
 

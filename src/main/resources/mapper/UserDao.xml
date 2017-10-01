@@ -12,9 +12,9 @@
         FROM
         user
         WHERE
-        user_phone = #{0}
+        user_phone = #{ phone }
         AND
-        password = #{1}
+        password = #{ password }
 
     </select>
 

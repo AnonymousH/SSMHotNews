@@ -46,4 +46,6 @@ public interface SQLData {
     void insertCategoryRelation(@Param("newsID") long newsID ,@Param("categoryID") long categoryID);
 
     long selectCategoryID(String categoryName);
+
+    long selectCategoryIDTest(String categoryName);
 }

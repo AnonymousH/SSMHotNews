@@ -38,4 +38,12 @@ public interface SQLData {
 
     long selectDislikeID(String dislike);
 
+    /**
+     *   创建news表和categoty表的关系表
+     * @param newsID
+     * @param categoryID
+     */
+    void insertCategoryRelation(@Param("newsID") long newsID ,@Param("categoryID") long categoryID);
+
+    long selectCategoryID(String categoryName);
 }

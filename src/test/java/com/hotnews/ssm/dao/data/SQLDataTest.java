@@ -120,11 +120,29 @@ public class SQLDataTest extends BaseTest {
 
         }
 
-//        Iterator it = strings.iterator();
-//        while (it.hasNext()) {
-//            String uid = UUID.randomUUID().toString();
-//            sqlData.insertDisLikeReason(uid, (String) it.next());
-//        }
+    }
+
+    @Test
+    public void insertCategoryRelation() throws Exception {
+
+        for (int i = 1 ; i < 864; i++) {
+            String category = sqlData.queryCategory(i);
+
+            if (category != null) {
+
+                List<String> list = Arrays.asList(category.split(","));
+                if (list != null && !list.isEmpty()) {
+                    for (int j = 0; j < list.size(); j++) {
+                        long dislikeID = sqlData.selectCategoryID(list.get(j).trim());
+                        sqlData.insertCategoryRelation(i,dislikeID);
+
+                    }
+                }
+
+            }
+
+        }
+
     }
 
 }

@@ -45,18 +45,23 @@
     </insert>
 
 
-    <!--<select id="selectDislikeID" resultType="String">-->
-        <!--SELECT-->
-        <!--dislike_reason.uid-->
-        <!--FROM-->
-        <!--dislike_reason-->
-        <!--WHERE-->
-        <!--dislike_reason.dislike_reason = #{dislike}-->
-    <!--</select>-->
-
     <select id="selectDislikeID" resultType="long">
         SELECT dislike_reason.id FROM dislike_reason WHERE
         dislike_reason.dislike_reason =#{dislike}
+
+    </select>
+
+
+    <insert id="insertCategoryRelation">
+        INSERT INTO news_category_relation
+        (news_id, category_id)
+        VALUES
+        ( #{newsID} , #{categoryID} )
+    </insert>
+
+   <select id="selectCategoryID" resultType="long">
+        SELECT category.id FROM category WHERE
+        category.category_name =#{categoryName}
 
     </select>
 

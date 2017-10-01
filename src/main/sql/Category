@@ -13,3 +13,20 @@ CREATE TABLE category(
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8
   COMMENT = '新闻类别表';
+
+
+CREATE TABLE news_category_relation(
+  `id`         BIGINT      NOT NULL AUTO_INCREMENT
+  COMMENT 'id',
+  `news_id`    BIGINT NOT NULL
+  COMMENT '新闻ID',
+  `category_id` BIGINT NOT NULL
+  COMMENT '新闻类别ID',
+
+  PRIMARY KEY (`id`),
+  KEY idx_news_id (`news_id`),
+  KEY idx_category_id(`category_id`)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  COMMENT = '新闻对应类别关系表';

@@ -9,12 +9,16 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -22,8 +26,10 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/news")
-@Api(tags = "News" , value = "/news", description = "获取相关新闻")
-public class NewsController {
+@Api(tags = "News", value = "/news", description = "获取相关新闻")
+public class NewsController extends BaseController {
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private NewsService newsService;
@@ -36,18 +42,32 @@ public class NewsController {
     })
     @ResponseBody
     @RequestMapping(value = "/getNews", method = RequestMethod.GET)
-    public ResponsTemplate<List<News>> getNews(String type, int page, int limit) {
+    public ResponsTemplate<List<News>> getNews(HttpServletRequest request, String type, int page, int limit) {
+        getHeaderParams(request);
+        logger.info("--------Params-------  " + devicePlatform);
+        logger.info("--------Params-------  " + api_userId);
+        logger.info("--------Params-------  " + token);
+        logger.info("--------Params-------  " + appVersion);
+        logger.info("--------Params-------  " + salePlatformId);
         List<News> newsList = newsService.getNews(type, page, limit);
-        return JsonUtil.getJsonResult(newsList,1,"");
+        return JsonUtil.getJsonResult(newsList, 1, "");
     }
 
     @ApiOperation(value = "获取新闻所有类别", notes = "获取新闻所有类别", httpMethod = "GET")
     @ResponseBody
     @RequestMapping(value = "/getAllCategroy", method = RequestMethod.GET)
-    public List<Category> getCategoryType () {
+    public List<Category> getCategoryType(HttpServletRequest request, String id) {
+
+        getHeaderParams(request);
+
+        logger.info("--------Params-------  " + devicePlatform);
+        logger.info("--------Params-------  " + api_userId);
+        logger.info("--------Params-------  " + token);
+        logger.info("--------Params-------  " + appVersion);
+        logger.info("--------Params-------  " + salePlatformId);
+
         return newsService.getType();
     }
-
 
 
 }

@@ -1,7 +1,10 @@
 package com.hotnews.ssm.web;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hotnews.ssm.dao.BaseTest;
 import com.hotnews.ssm.entity.Category;
+import com.hotnews.ssm.entity.HotNews;
 import com.hotnews.ssm.entity.News;
 import com.hotnews.ssm.service.NewsService;
 import org.junit.Test;
@@ -34,6 +37,17 @@ public class NewsControllerTest extends BaseTest {
         List<Category> categories = newsService.getType();
 
         System.out.println(categories.toString());
+
+    }
+
+    @Test
+    public void getHotNews() throws Exception {
+
+        PageHelper.startPage(1, 10);
+
+        PageInfo pageInfo = newsService.getHotNews("军事",0,0);
+
+        System.out.println("-----------  "+pageInfo.getList().toString());
 
     }
 

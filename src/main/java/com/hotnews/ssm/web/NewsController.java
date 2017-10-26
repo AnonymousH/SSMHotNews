@@ -1,7 +1,9 @@
 package com.hotnews.ssm.web;
 
+import com.github.pagehelper.PageInfo;
 import com.hotnews.ssm.dto.ResponsTemplate;
 import com.hotnews.ssm.entity.Category;
+import com.hotnews.ssm.entity.HotNews;
 import com.hotnews.ssm.entity.News;
 import com.hotnews.ssm.service.NewsService;
 import com.hotnews.ssm.util.JsonUtil;
@@ -69,5 +71,15 @@ public class NewsController extends BaseController {
         return newsService.getType();
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/getHotNews", method = RequestMethod.GET)
+    public ResponsTemplate<List> getHotNews(HttpServletRequest request, String type, int page, int limit) {
+        getHeaderParams(request);
+
+        PageInfo newsList = newsService.getHotNews(type, page, limit);
+
+        return JsonUtil.getJsonResult(newsList.getList(), 1, "success");
+    }
 
 }

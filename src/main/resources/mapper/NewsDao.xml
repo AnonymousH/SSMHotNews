@@ -16,6 +16,7 @@
         type = #{type}
     </select>
 
+
     <select id="queryType" resultType="com.hotnews.ssm.entity.Category">
         SELECT
         category.id,
@@ -25,6 +26,22 @@
         category
     </select>
 
+    <select id="selectCategoryNum" resultType="Integer">
+        SELECT COUNT(*)
+        FROM
+        new_bean
+       WHERE
+        FIND_IN_SET(#{type},category)
+    </select>
+
+
+    <select id="queryHotNews" resultType="com.hotnews.ssm.entity.HotNews">
+        SELECT *
+        FROM
+        new_bean
+       WHERE
+        FIND_IN_SET(#{type},category)
+    </select>
 
 
 </mapper>

@@ -1,9 +1,11 @@
 package com.hotnews.ssm.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by AnonymousH on 2017/9/25.
  */
-public class Category {
+public class Category implements Serializable{
 
     private String id;
 

@@ -1,11 +1,12 @@
 package com.hotnews.ssm.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by AnonymousH on 2017/10/26.
  */
-public class HotNews {
+public class HotNews implements Serializable {
 
     private long id;
 
